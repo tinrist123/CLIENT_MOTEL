@@ -1,0 +1,48 @@
+.search_bar {
+  .search {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #cdcdcd;
+    border-radius: 3rem;
+    height: 4rem;
+    .select_city_filter_dropdown {
+      padding: 0 1.6rem;
+      border-right: 1px solid #b4b4b4;
+      .select_control {
+        display: flex;
+        .icon_location {
+          margin: auto 0;
+        }
+        .selected_value {
+          margin-left: 0.8rem;
+          margin-right: 1.8rem;
+          span {
+            font-size: 1.6rem;
+          }
+        }
+        .dropdown_caret_icon {
+          margin: auto 0;
+        }
+      }
+    }
+    .input_field {
+      padding-left: 1.8rem;
+      display: flex;
+      align-items: center;
+      input {
+        width: 33rem;
+        font-family: Nunito;
+        font-size: 1.6rem;
+        color: #8f8f8f;
+        letter-spacing: 0;
+        line-height: 24px;
+        border: none;
+        outline: none;
+      }
+      .search_icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

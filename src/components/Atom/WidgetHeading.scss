@@ -1,0 +1,30 @@
+@import "../../app.scss";
+
+.title_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .title_text {
+    font-family: Nunito;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: $text_color_common;
+    letter-spacing: 0;
+  }
+
+  .box_view_more {
+    height: 32px;
+    padding: 4px 12px;
+    border: 1px solid #4877f8;
+    border-radius: 16px;
+    cursor: pointer;
+    span {
+      font-family: Nunito-SemiBold;
+      font-size: 1.6rem;
+      color: #4877f8;
+      letter-spacing: 0;
+      line-height: 2.4rem;
+      white-space: nowrap;
+    }
+  }
+}

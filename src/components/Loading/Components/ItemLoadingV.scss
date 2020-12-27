@@ -1,0 +1,133 @@
+/*
+ * Variables
+ */
+
+:root {
+  --card-padding: 24px;
+  --card-height: 150px;
+  --card-skeleton: linear-gradient(lightgrey var(--card-height), transparent 0);
+
+  --avatar-size: 18px;
+  --avatar-position: var(--card-padding) var(--card-padding);
+  --avatar-2-position: var(--card-padding) 50px;
+  --avatar-skeleton: linear-gradient(whitesmoke var(--avatar-size), transparent 0);
+
+  --title-height: 18px;
+  --title-width: 100px;
+  --title-position: 50px var(--card-padding);
+  --title-2-position: 50px 50px;
+  --title-skeleton: linear-gradient(whitesmoke var(--title-height), transparent 0);
+
+  --price-height: 18px;
+  --price-width: 50px;
+  --price-position: 200px var(--card-padding);
+  --price-2-position: 200px 50px;
+  --price-skeleton: linear-gradient(whitesmoke var(--title-height), transparent 0);
+
+  --desc-line-height: 16px;
+  --desc-line-skeleton: linear-gradient(whitesmoke var(--desc-line-height), transparent 0);
+  --desc-line-1-width: 130px;
+  --desc-line-1-position: var(--card-padding) 110px;
+  --desc-line-2-width: 50px;
+  --desc-line-2-position: 200px 110px;
+
+  --footer-height: 0px;
+  --footer-position: 0 calc(var(--card-height) - var(--footer-height));
+  --footer-skeleton: linear-gradient(whitesmoke var(--footer-height), transparent 0);
+
+  --blur-width: 200px;
+  --blur-size: var(--blur-width) calc(var(--card-height) - var(--footer-height));
+}
+
+/*
+ * Card Skeleton for Loading
+ */
+
+.card {
+  width: 280px; //demo
+  height: var(--card-height);
+  margin-bottom: 15px;
+
+  &:empty::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 10px 45px rgba(0, 0, 0, 0.1);
+
+    background-image: linear-gradient(90deg, rgba(lightgrey, 0) 0, rgba(lightgrey, 0.8) 50%, rgba(lightgrey, 0) 100%),
+      //animation blur
+      var(--title-skeleton),
+      //title
+      var(--price-skeleton),
+      //title
+      var(--title-skeleton),
+      //title
+      var(--price-skeleton),
+      //title
+      var(--desc-line-skeleton),
+      //desc1
+      var(--desc-line-skeleton),
+      //desc2
+      var(--avatar-skeleton),
+      //avatar
+      var(--avatar-skeleton),
+      //avatar
+      var(--footer-skeleton),
+      //footer bar
+      var(--card-skeleton) //card
+;
+
+    background-size: var(--blur-size), var(--title-width) var(--title-height), var(--price-width) var(--price-height),
+      var(--title-width) var(--title-height), var(--price-width) var(--price-height),
+      var(--desc-line-1-width) var(--desc-line-height), var(--desc-line-2-width) var(--desc-line-height),
+      var(--avatar-size) var(--avatar-size), var(--avatar-size) var(--avatar-size), 100% var(--footer-height), 100% 100%;
+
+    background-position: -150% 0,
+      //animation
+      var(--title-position),
+      //title
+      var(--price-position),
+      //title
+      var(--title-2-position),
+      //title
+      var(--price-2-position),
+      //title
+      var(--desc-line-1-position),
+      //desc1
+      var(--desc-line-2-position),
+      //desc2
+      var(--avatar-position),
+      //avatar
+      var(--avatar-2-position),
+      //avatar
+      var(--footer-position),
+      //footer bar
+      0 0 //card
+;
+
+    background-repeat: no-repeat;
+    animation: loading 1s infinite;
+  }
+}
+
+@keyframes loading {
+  to {
+    background-position: 350% 0, var(--title-position), var(--price-position), var(--title-2-position),
+      var(--price-2-position), var(--desc-line-1-position), var(--desc-line-2-position), var(--avatar-position),
+      var(--avatar-2-position), var(--footer-position), 0 0;
+  }
+}
+
+/*
+ * Demo Stuff
+ */
+
+// body {
+//   min-height: 100vh;
+//   background-color: grey;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }

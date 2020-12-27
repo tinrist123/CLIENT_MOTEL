@@ -1,0 +1,30 @@
+.tag_address {
+  margin-top: 3.2rem;
+  .room_name_title {
+    font-size: 3.2rem;
+    font-family: Nunito-Regular;
+    color: #333333;
+    margin-bottom: 0.6rem;
+  }
+  .tag {
+    span {
+      font-size: 1.6rem;
+      color: rgb(102, 102, 102);
+      &:first-child a {
+        margin-left: 0;
+      }
+      a {
+        color: rgb(72, 119, 248);
+        margin: 0 1rem;
+      }
+    }
+    .street_name {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.center_item {
+  display: flex;
+  align-items: center;
+}

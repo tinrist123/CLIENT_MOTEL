@@ -1,0 +1,22 @@
+@import "../../../../assets/styles/common.scss";
+
+.box_describe_num_member {
+  flex: 1 1;
+  .description_text {
+    @extend .title_common;
+    text-transform: none;
+    margin: 0.8rem 0;
+  }
+  .box_number_member {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.4rem;
+    border-radius: 0.8rem;
+    .number {
+      @extend .value_common;
+      color: #ffff;
+    }
+  }
+}

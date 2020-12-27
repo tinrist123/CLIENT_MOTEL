@@ -1,0 +1,16 @@
+@import "../../../../assets//styles//common.scss";
+.more_button {
+  text-align: center;
+  padding-top: 2.4rem;
+  button {
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    cursor: pointer;
+    @extend .value_common;
+    font-size: 1.6rem;
+    color: #4877f8;
+    font-family: Nunito;
+    font-weight: 600;
+  }
+}

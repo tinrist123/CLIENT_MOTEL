@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./app.scss";
+import { HomeRoute, RoomDetail, SearchResultRoute } from "./routes/routes";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Header, Footer } from "./components";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import FilterSlice from "./Redux/features/Filter/FilterSlice";
 
 function App() {
+  const store = createStore(FilterSlice);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header>
+        <Header />
       </header>
-    </div>
+      <Switch>
+        <Provider store={store}>
+          <Route path="/room">
+            <RoomDetail />
+          </Route>
+          <Route path="/search">
+            <SearchResultRoute />
+          </Route>
+          <Route path="/">
+            <HomeRoute />
+          </Route>
+        </Provider>
+      </Switch>
+      <footer>
+        <Footer />
+      </footer>
+    </Router>
   );
 }
+
+/// Router bi cai gi roi
+// Toi ::
+////// LAM XONG FILTER
+////// CATEGORY PAGE
+///// Elastic Search
+///// CMS Theme
 
 export default App;

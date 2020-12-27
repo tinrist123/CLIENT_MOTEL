@@ -1,0 +1,17 @@
+@import "./../common.scss";
+
+.information_room_detail {
+  background-color: #ffffff;
+  padding: 0 3.2rem 3.2rem 3.2rem;
+  margin-top: 3.2rem;
+  border-radius: 2rem;
+  .list_information {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.title {
+  @extend .title_common;
+  text-transform: none;
+  margin-left: 0.8rem;
+}

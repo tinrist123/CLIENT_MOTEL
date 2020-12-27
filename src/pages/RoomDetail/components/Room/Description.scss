@@ -1,0 +1,10 @@
+@import "./../common.scss";
+
+.description {
+  .description_content {
+    @extend .value_common;
+    font-family: Nunito-Regular;
+    white-space: pre-wrap;
+    padding-top: 2.4rem;
+  }
+}

@@ -1,0 +1,23 @@
+.modal {
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #222;
+  z-index: -9999;
+  cursor: -webkit-image-set(
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAADFBMVEUAAAD///////////84wDuoAAAAA3RSTlMAYM+UUHBYAAAAPUlEQVR4AeXSwQkAIAwEwVzsv2fh3mMF+ssOQhBnMzjZyYE0QpogDZCOEA2+jo5FuDpEveJecM9X7/b8PhcNlwDl/m+bagAAAABJRU5ErkJggg==)
+        1x,
+      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAADFBMVEUAAAD///////////84wDuoAAAAA3RSTlMAYM+UUHBYAAAAPUlEQVR4AeXSwQkAIAwEwVzsv2fh3mMF+ssOQhBnMzjZyYE0QpogDZCOEA2+jo5FuDpEveJecM9X7/b8PhcNlwDl/m+bagAAAABJRU5ErkJggg==)
+        2x
+    ),
+    pointer;
+  z-index: 10000;
+  zoom: 1;
+  transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 250ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

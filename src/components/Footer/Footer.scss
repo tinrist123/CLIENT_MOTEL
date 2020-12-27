@@ -1,0 +1,24 @@
+@import "../../assets/styles/common.scss";
+
+.footer {
+  margin-top: 3.2rem;
+  padding-top: 3.2rem;
+  background-color: #ffffff;
+  .container {
+    @extend .container;
+    padding: 0 3.2rem;
+    .logo {
+      padding-bottom: 2.4rem;
+    }
+    .author {
+      padding-bottom: 1.2rem;
+      span.email {
+        @extend .value_common;
+        margin-bottom: 0.8rem;
+      }
+      p.name {
+        @extend .value_common;
+      }
+    }
+  }
+}

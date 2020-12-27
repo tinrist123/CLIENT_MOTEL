@@ -1,0 +1,14 @@
+.room_detail {
+  .container {
+    .row {
+      .left {
+        flex-basis: 80rem;
+      }
+      .right {
+        flex: 1 1;
+        margin-left: 3.2rem;
+        align-self: flex-start;
+      }
+    }
+  }
+}

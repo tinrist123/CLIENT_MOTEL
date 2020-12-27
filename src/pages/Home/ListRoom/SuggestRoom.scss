@@ -1,0 +1,12 @@
+.suggest_room {
+  border-radius: 20px;
+  margin-top: 3.2rem;
+  display: flex;
+  align-items: flex-start;
+  .list_new_room_data {
+    flex: 7 1;
+  }
+  .list_confirmed_room_data {
+    flex: 3 1;
+  }
+}

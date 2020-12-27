@@ -1,0 +1,13 @@
+.list_view {
+  padding-top: 1.6rem;
+}
+
+.dropdown_animation {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.active_dropdown {
+  height: 680px;
+}

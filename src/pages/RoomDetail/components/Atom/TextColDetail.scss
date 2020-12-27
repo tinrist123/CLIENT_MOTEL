@@ -1,0 +1,11 @@
+@import "../../../../assets/styles/common.scss";
+.information_text_col {
+  display: flex;
+  flex-direction: column;
+  .title_name {
+    @extend .title_common;
+  }
+  .title_value {
+    @extend .value_common;
+  }
+}

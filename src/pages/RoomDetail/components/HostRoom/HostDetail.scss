@@ -1,0 +1,56 @@
+@import "../common.scss";
+
+.information_host_room {
+  padding: 0 3.2rem;
+  padding-bottom: 3.2rem;
+  background-color: #ffffff;
+  margin-top: 3.2rem;
+  .detail_host {
+    display: flex;
+    margin-top: 2.4rem;
+    .detail {
+      display: flex;
+      align-items: center;
+      flex-basis: 55%;
+      .avatar {
+        img {
+          width: 6rem;
+          height: 6rem;
+          object-fit: cover;
+          margin-right: 0.8rem;
+          border-radius: 50%;
+        }
+      }
+      .information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 2.4rem;
+        border-right: 1px solid #cdcdcd;
+        span {
+          @extend .value_common;
+          font-family: Nunito;
+          color: #000;
+        }
+        .name {
+          span {
+          }
+        }
+        .phone_number {
+          span {
+          }
+        }
+      }
+    }
+    .datetime {
+      @extend .title_common;
+      color: #000;
+      font-size: 1.6rem;
+      font-family: Nunito;
+      text-transform: none;
+      align-self: flex-end;
+      margin-bottom: 0.8rem;
+      margin-left: 2.4rem;
+    }
+  }
+}

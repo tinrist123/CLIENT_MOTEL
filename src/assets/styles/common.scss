@@ -1,0 +1,29 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.title_common {
+  margin: 0;
+  font-family: Nunito-SemiBold;
+  font-size: 1.2rem;
+  color: #666666;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.value_common {
+  font-family: Nunito-SemiBold;
+  margin: 0;
+  font-size: 1.6rem;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 2.4rem;
+}

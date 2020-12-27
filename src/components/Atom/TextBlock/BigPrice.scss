@@ -1,0 +1,21 @@
+$color_room_price: #f73486;
+
+.directionColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price_text {
+  color: $color_room_price;
+  font-family: Munito-bold;
+  .price {
+    font-weight: 600;
+    font-size: 4.8rem;
+    line-height: 6.8rem;
+  }
+  .text_currency_room {
+    font-size: 1.6em;
+    line-height: 2.4rem;
+  }
+}
