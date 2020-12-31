@@ -139,34 +139,38 @@ const Constant = {
   ],
   category: [
     {
+      id: "5fdacb445bde0402bbf4911b",
       type: "NotShared",
       name: "Phòng cho thuê",
     },
     {
+      id: "5fdacb445bde0402bbf4911c",
       type: "Shared",
       name: "Phòng ở ghép",
     },
     {
+      id: "5fdacb445bde0402bbf4911d",
       type: "Dormitory",
       name: "Kí túc xá",
     },
     {
+      id: "5fdacb445bde0402bbf4911e",
       type: "House",
       name: "Nhà nguyên căn",
     },
     {
+      id: "5fdacb445bde0402bbf4911f",
       type: "Department",
       name: "Căn hộ",
     },
   ],
   sex: [
     {
-      type: "male",
+      id: "male",
       name: "Nam",
     },
     {
-      type: "female",
-
+      id: "female",
       name: "Nữ",
     },
   ],

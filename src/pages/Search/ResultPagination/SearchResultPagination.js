@@ -10,11 +10,15 @@ import {
 import { postAxiosPayloadData } from "../../../services/TinNgoServices";
 import Constant from "../../../common/Constant";
 
+import { useSelector } from "react-redux";
+
 function SearchResultPagination(props) {
-  const { placeDetail, filters, code } = props;
+  const { placeDetail, code } = props;
   const [loading, setLoading] = useState(true);
   const [dataRooms, setDataRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const filters = useSelector((state) => state.filters);
 
   useEffect(async () => {
     let body = Constant.payload;
@@ -22,8 +26,13 @@ function SearchResultPagination(props) {
     body.current_page = currentPage - 1;
     body.page_number = 7;
     body["place_detail"] = { district_code: code };
+    body = {
+      ...body,
+      ...filters,
+    };
+    console.log(body);
     let response = await postAxiosPayloadData(
-      `${Constant.url}/motel/search`,
+      `${Constant.url}/motel/search/filter`,
       {},
       body
     );
@@ -34,7 +43,7 @@ function SearchResultPagination(props) {
       setDataRooms([]);
       setLoading(false);
     }
-  }, [currentPage]);
+  }, [currentPage, filters]);
 
   function ChangeCurrentPage(numPage) {
     setCurrentPage(numPage);

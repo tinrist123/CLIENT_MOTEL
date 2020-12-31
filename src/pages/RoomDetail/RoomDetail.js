@@ -23,9 +23,12 @@ function RoomDetail(props) {
 
   useEffect(async () => {
     try {
-      let response = await fetchWithTimeout(`${Constant.url}/motel/${id}`, {
-        timeout: 6000,
-      }).then((response) => response.json());
+      let response = await fetchWithTimeout(
+        `${Constant.url}/motel/detail/${id}`,
+        {
+          timeout: 6000,
+        }
+      ).then((response) => response.json());
       if (response) {
         setRoomData(response);
         setLoading(false);

@@ -3,6 +3,8 @@ import "./InformationRoom.scss";
 import TextColDetail from "../Atom/TextColDetail";
 import HeadingIcon from "../Atom/HeadingIcon";
 import HomeIcon from "../../../../assets/images/icons/common/HomeIcon";
+import { FormatMoney } from "../../../../helpers";
+
 function InformationRoom(props) {
   const {
     data: {
@@ -11,7 +13,6 @@ function InformationRoom(props) {
       deposit,
       electric_price,
       water_price,
-      parking_fee,
       wifi_cost,
       sex_allowed,
       number_vacancies_available_in_room,
@@ -30,7 +31,8 @@ function InformationRoom(props) {
   let depositPerMonth = parseInt(deposit) / parseInt(room_price);
 
   if (deposit <= 1) depositPerMonth = deposit;
-  if (depositPerMonth <= 1) depositPerMonth = deposit;
+  if (depositPerMonth <= 1)
+    depositPerMonth = `${FormatMoney(deposit, 0, ".", ",")}`;
 
   return (
     <div className="information_room_detail border_radius_2rem">
@@ -44,7 +46,7 @@ function InformationRoom(props) {
         {room_price && (
           <TextColDetail
             title_name={"giá phòng"}
-            title_value={room_price}
+            title_value={`${FormatMoney(room_price, 0, ".", ",")} đồng`}
             styleComponent={{ margin: "2.4rem 0 0 0", width: "calc(100%/4)" }}
           />
         )}
@@ -72,21 +74,21 @@ function InformationRoom(props) {
         {(!!electric_price || electric_price === 0) && (
           <TextColDetail
             title_name={"Điện"}
-            title_value={electric_price}
+            title_value={`${FormatMoney(electric_price, 0, ".", ",")} đồng`}
             styleComponent={{ margin: "2.4rem 0 0 0", width: "calc(100%/4)" }}
           />
         )}
         {(!!water_price || water_price === 0) && (
           <TextColDetail
             title_name={"Nước"}
-            title_value={water_price}
+            title_value={`${FormatMoney(water_price, 0, ".", ",")} đồng`}
             styleComponent={{ margin: "2.4rem 0 0 0", width: "calc(100%/4)" }}
           />
         )}
         {(!!wifi_cost || wifi_cost === 0) && (
           <TextColDetail
             title_name={"WIFI"}
-            title_value={wifi_cost}
+            title_value={`${FormatMoney(wifi_cost, 0, ".", ",")} đồng`}
             styleComponent={{ margin: "2.4rem 0 0 0", width: "calc(100%/4)" }}
           />
         )}

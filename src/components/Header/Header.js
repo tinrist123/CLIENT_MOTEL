@@ -15,6 +15,17 @@ function Header(props) {
             </Link>
           </div>
           <Search />
+          <div className="popup">
+            <div className="upload_room">
+              <Link to="/home/create/room">Đăng phòng</Link>
+            </div>
+            <div className="login">
+              <Link to="/home/login">Đăng Nhập</Link>
+            </div>
+            <div className="register">
+              <Link to="/home/register">Đăng kí</Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

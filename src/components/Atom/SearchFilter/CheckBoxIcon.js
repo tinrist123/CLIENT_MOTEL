@@ -1,15 +1,16 @@
 import React from "react";
 import "./CheckBoxIcon.scss";
 import { TextIcon } from "../../index";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import {
   utilityAdded,
   motelCategoryAdded,
   sex_allowedAdded,
   utilityRemoved,
+  motelCategoryRemoved,
+  sex_allowedRemoved,
 } from "../../../Redux/features/Filter/FilterSlice";
-import { useSelector } from "react-redux";
 
 function CheckBoxIcon(props) {
   const { IconComponent, text, id, typeDispatch } = props;
@@ -53,15 +54,28 @@ function CheckBoxIcon(props) {
                     type: e.target.id,
                   })
                 );
+              } else {
+                dispatch(
+                  motelCategoryRemoved({
+                    id: nanoid(),
+                    type: e.target.id,
+                  })
+                );
               }
             } else if (typeDispatch === "sex_allowed") {
-              if (
-                !filters.category_list.find((cate) => cate.type === e.target.id)
-              ) {
+              console.log(filters.sex_allowed !== e.target.id);
+              if (filters.sex_allowed !== e.target.id) {
                 dispatch(
                   sex_allowedAdded({
                     id: nanoid(),
                     type: e.target.id,
+                  })
+                );
+              } else {
+                dispatch(
+                  sex_allowedRemoved({
+                    id: nanoid(),
+                    type: "",
                   })
                 );
               }

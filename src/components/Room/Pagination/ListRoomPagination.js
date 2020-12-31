@@ -9,6 +9,7 @@ import {
 } from "../../../components";
 import { postAxiosPayloadData } from "../.././../services/TinNgoServices";
 import Constant from "../.././../common/Constant";
+import { useSelector } from "react-redux";
 
 function ListRoomPagination(props) {
   const { queryOption } = props;
@@ -16,16 +17,20 @@ function ListRoomPagination(props) {
   const [dataRooms, setDataRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const filters = useSelector((state) => state.filters);
+
   useEffect(async () => {
     let body = Constant.payload;
 
     body.current_page = currentPage - 1;
-    body.page_number = 5;
-    if (queryOption !== undefined) {
-      body.matchData = { ...queryOption };
-    }
+    body.page_number = 7;
+    body = {
+      ...body,
+      ...filters,
+    };
+    console.log(body);
     let response = await postAxiosPayloadData(
-      `${Constant.url}/motel/view-all`,
+      `${Constant.url}/motel/search/filter`,
       {},
       body
     );
@@ -36,7 +41,7 @@ function ListRoomPagination(props) {
       setDataRooms([]);
       setLoading(false);
     }
-  }, [currentPage]);
+  }, [currentPage, filters]);
 
   function ChangeCurrentPage(numPage) {
     setCurrentPage(numPage);

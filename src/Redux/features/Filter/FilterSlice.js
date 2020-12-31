@@ -19,21 +19,43 @@ export const FilterSlice = createSlice({
       state.filters.category_list.push(action.payload);
     },
     sex_allowedAdded: (state, action) => {
-      state.filters.sex_allowed = action.payload;
+      state.filters.sex_allowed = action.payload.type;
     },
     utilityRemoved: (state, action) => {
-      return {
-        ...state.filters,
-        util_list: state.filters.util_list.filter(
-          (util) => util.type !== action.payload.type
-        ),
-      };
+      const { type } = action.payload;
+      const { util_list } = state.filters;
+      const index = util_list.findIndex((item) => type === item.type);
+      util_list.splice(index, 1);
     },
     motelCategoryRemoved: (state, action) => {
-      state.filters.category_list.push(action.payload);
+      const { type } = action.payload;
+      const { category_list } = state.filters;
+      const index = category_list.findIndex((item) => type === item.type);
+      category_list.splice(index, 1);
     },
     sex_allowedRemoved: (state, action) => {
-      state.filters.sex_allowed = action.payload;
+      const { type } = action.payload;
+      state.filters.sex_amllowed = type;
+    },
+    reset_filter: (state, action) => {
+      state.filters = {
+        ...state,
+        matchData: {
+          disabled: {
+            $ne: true,
+          },
+        },
+        room_location: "HCM",
+        current_page: 0,
+        page_number: 7,
+        filters: {},
+        place_detail: {
+          district_code: "770",
+        },
+        util_list: [],
+        sex_allowed: "",
+        category_list: [],
+      };
     },
   },
 });
@@ -45,6 +67,7 @@ export const {
   utilityRemoved,
   motelCategoryRemoved,
   sex_allowedRemoved,
+  reset_filter,
 } = FilterSlice.actions;
 
 export default FilterSlice.reducer;

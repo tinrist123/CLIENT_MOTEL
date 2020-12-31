@@ -14,7 +14,7 @@ function ListView(props) {
         return (
           <CheckBoxIcon
             text={data.name}
-            id={data.type}
+            id={data.id}
             typeDispatch={typeDispatch}
           />
         );

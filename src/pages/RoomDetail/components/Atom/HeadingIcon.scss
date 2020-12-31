@@ -17,6 +17,8 @@
     }
     .title {
       @extend .value_common;
+      font-weight: bold;
+      font-family: Nunito;
       font-size: 2.4rem;
     }
   }

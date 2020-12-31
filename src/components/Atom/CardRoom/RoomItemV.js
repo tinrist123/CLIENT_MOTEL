@@ -3,11 +3,24 @@ import "./RoomItemV.scss";
 
 import BigPrice from "../../Atom/TextBlock/BigPrice";
 import { Link } from "react-router-dom";
+import { FormatMoneyByCateMotel } from "../../../helpers";
 
 function RoomItemV(props) {
-  const { imgUrl_list, name_motel, full_address, _id } = props.data;
+  const {
+    imgUrl_list,
+    name_motel,
+    full_address,
+    _id,
+    room_price,
+    motel_category: { room_type, cate_name },
+  } = props.data;
 
   const { district } = full_address;
+
+  const { showingMoney, typeMoney, type } = FormatMoneyByCateMotel(
+    room_type,
+    room_price
+  );
 
   const isConfirmedIcon = require(`../../../assets/images/icons/confirmed/confirmed.png`);
 
@@ -35,7 +48,11 @@ function RoomItemV(props) {
             <p className="district_name">{district.text}</p>
           </div>
           <div className="price_room">
-            <BigPrice Price={"1.5"} />
+            <BigPrice
+              Price={showingMoney}
+              currencyPerRoom={typeMoney}
+              currencyType={type}
+            />
           </div>
         </div>
       </Link>

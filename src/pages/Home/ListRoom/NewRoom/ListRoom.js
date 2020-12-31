@@ -17,7 +17,7 @@ function ListRoom(props) {
 
   useEffect(async () => {
     try {
-      let response = await axiosData(`${Constant.url}/motel`);
+      let response = await axiosData(`${Constant.url}/motel/all`);
       if (response) {
         setDataRooms(response.data);
         setLoading(false);

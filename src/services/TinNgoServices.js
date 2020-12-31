@@ -10,7 +10,8 @@ const TinNgoServices = {
   fetchData(baseUri, headers = {}) {
     return fetch(baseUri, headers)
       .then((response) => response.json())
-      .then((data) => data);
+      .then((data) => data)
+      .catch((err) => err);
   },
   async fetchWithTimeout(resource, options) {
     const timeout = 8000;

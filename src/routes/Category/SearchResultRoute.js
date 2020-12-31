@@ -7,15 +7,15 @@ function SearchResultRoute() {
     <div>
       <Route
         exact
-        path="/search/view-all/new-rooms"
+        path="/search/view-all/new-rooms/"
         component={() => <ViewMoreRoom type={"new-rooms"} />}
       />
       <Route
         exact
-        path="/search/view-all/confirmed-room"
+        path="/search/view-all/confirmed-room/"
         component={() => <ViewMoreRoom type={"confirmed-room"} />}
       />
-      <Route exact path="/search/rooms/result" component={SearchResult} />
+      <Route exact path="/search/rooms/result/" component={SearchResult} />
     </div>
   );
 }

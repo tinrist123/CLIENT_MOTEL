@@ -8,6 +8,8 @@ import {
   LocationIcon,
   AllSexIcon,
 } from "../../../assets/images/icons";
+import { FormatMoneyByCateMotel } from "../../../helpers";
+
 import { Link } from "react-router-dom";
 
 function RoomItemH(props) {
@@ -17,14 +19,21 @@ function RoomItemH(props) {
     imgUrl_list,
     isConfirmed,
     name_motel,
-    price,
+    room_price,
     _id,
     exact_room_address,
+    motel_category: { room_type, cate_name },
+    sex_allowed,
   } = props.data;
+
+  const { showingMoney, typeMoney, type } = FormatMoneyByCateMotel(
+    room_type,
+    room_price
+  );
 
   return (
     <div className="card_room_horizontal">
-      <Link to={`room/${_id}`} className="room_item_h">
+      <Link to={`/room/${_id}`} className="room_item_h">
         <div className="room_img">
           <div className="img">
             <img src={imgUrl_list[0]} alt="" />
@@ -44,7 +53,7 @@ function RoomItemH(props) {
               <div className="cate_room">
                 <TextIcon
                   iconComponent={<HomeIcon />}
-                  Text={"Căn hộ"}
+                  Text={cate_name}
                   styleComponent={{ marginBottom: "1.6rem" }}
                   styleTextName={"text_information"}
                 />
@@ -55,7 +64,13 @@ function RoomItemH(props) {
               >
                 <TextIcon
                   iconComponent={<AllSexIcon />}
-                  Text={"Nam & Nữ"}
+                  Text={
+                    sex_allowed === "any"
+                      ? "Nam & Nữ"
+                      : sex_allowed === "male"
+                      ? "Nam"
+                      : "Nữ"
+                  }
                   styleTextName={"text_information"}
                   styleComponent={{ marginRight: "3.2rem" }}
                 />
@@ -75,9 +90,11 @@ function RoomItemH(props) {
             </div>
             <div className="price_room">
               <BigPrice
-                Price={"5,2"}
+                Price={showingMoney}
                 directionColumn={true}
                 styleName={"big_price_block"}
+                currencyPerRoom={typeMoney}
+                currencyType={type}
               />
             </div>
           </div>

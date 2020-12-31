@@ -1,9 +1,13 @@
 import React from "react";
 import "./ListView.scss";
 import CheckBoxIcon from "../../../../../components/Atom/SearchFilter/CheckBoxIcon";
+import { GetUrlImgUtil } from "../../../../../helpers";
+import Constant from "../../../../../common/Constant";
 
 function ListView(props) {
   const { listData, isActiveDropdown, typeDispatch } = props;
+  const resData =
+    typeDispatch === "utility" ? Constant.utilities : Constant.category;
   return (
     <div
       className={`list_view dropdown_animation${
@@ -11,7 +15,8 @@ function ListView(props) {
       }`}
     >
       {listData.map((data) => {
-        const IconComponent = data.url_icon.default;
+        const IconComponent = GetUrlImgUtil(data.type, resData).url_icon
+          .default;
         return (
           <CheckBoxIcon
             IconComponent={

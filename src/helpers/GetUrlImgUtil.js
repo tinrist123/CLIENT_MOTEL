@@ -1,5 +1,5 @@
-function GetUrlImgUtil(typeUtil, Constant) {
-  return Constant.utilities.find((util) => {
+function GetUrlImgUtil(typeUtil, resData) {
+  return resData.find((util) => {
     return util.type === typeUtil;
   });
 }

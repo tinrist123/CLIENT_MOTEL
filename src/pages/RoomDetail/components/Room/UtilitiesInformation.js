@@ -11,7 +11,6 @@ import UtilityIcon from "../../../../assets/images/icons/common/UtilityIcon";
 function UtilitiesInformation(props) {
   const { util_list } = props;
 
-  console.log(util_list);
   const styleComponent = { margin: "2.4rem 0", width: "calc(100%/4)" };
   return (
     <div className="information_room_detail">
@@ -24,8 +23,7 @@ function UtilitiesInformation(props) {
 
       <div className="list_information">
         {util_list.map((util) => {
-          console.log(util.type);
-          let resultDetect = GetUrlImgUtil(util.type, Constant);
+          let resultDetect = GetUrlImgUtil(util.type, Constant.utilities);
           let Icon;
           if (resultDetect.length !== 0) {
             Icon = resultDetect.url_icon.default;

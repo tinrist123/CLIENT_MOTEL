@@ -1,7 +1,13 @@
 import React from "react";
 import "./BigPrice.scss";
 function BigTextPrice(props) {
-  const { Price, styleName, currencyPerRoom, directionColumn } = props;
+  const {
+    Price,
+    styleName,
+    currencyPerRoom,
+    directionColumn,
+    currencyType,
+  } = props;
 
   const blockStyleName = `price_text${
     directionColumn ? " directionColumn" : ""
@@ -17,9 +23,9 @@ function BigTextPrice(props) {
       >
         {Price}
       </span>
-      <span className={"text_currency_room"}>
-        {currencyPerRoom ? currencyPerRoom : " tr/phòng"}
-      </span>
+      <span
+        className={"text_currency_room"}
+      >{`${currencyPerRoom} /${currencyType}`}</span>
     </div>
   );
 }

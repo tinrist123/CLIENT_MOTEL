@@ -2,7 +2,7 @@ import React from "react";
 import HeadingIcon from "../Atom/HeadingIcon";
 import "./HostDetail.scss";
 import { UserIcon } from "../../../../assets/images/icons";
-
+import { FormatDateTime } from "../../../../helpers";
 function HostDetail(props) {
   const {
     host_data: {
@@ -13,6 +13,7 @@ function HostDetail(props) {
       created_date,
     },
   } = props;
+
   return (
     <div className="information_host_room border_radius_2rem">
       <HeadingIcon
@@ -34,7 +35,7 @@ function HostDetail(props) {
           </div>
         </div>
         <div className="datetime">
-          <span>Ngày đăng: {created_date}</span>
+          <span>Ngày đăng: {FormatDateTime(created_date)}</span>
         </div>
       </div>
     </div>
